@@ -67,7 +67,7 @@ const getCountryAndNeighbourData = function (country) {
     console.log(data);
     renderCountry(data);
 
-    //-->AJAX CALL FOR COUNTRY #2....
+    //-->AJAX CALL FOR COUNTRY #....
     const neighbour = data.borders;
     console.log(neighbour);
 
@@ -87,17 +87,18 @@ const getCountryAndNeighbourData = function (country) {
       request.addEventListener('load', function () {
         const [data] = JSON.parse(this.responseText);
         console.log(data);
-        renderCountry(data);
+        renderCountry(data, 'neighbour'); //second argument by definition @ the function provides an extra class name to diffrentiate the country from its neightbours
       });
     });
   });
 };
 
 //FUNCTION RENDER COUNTRY CARD
-function renderCountry(data) {
+function renderCountry(data, className = '') {
+  //second argument by definition @ the function provides an extra class name to diffrentiate the country from its neightbours. By default its nothing for the original country
   //-->#2.Prep HTML fragment based on the information received
   const html = `
-    <article class="country">
+    <article class="country ${className}">
       <img class="country__img" src="${data.flags.svg}" />
       <div class="country__data">
         <h3 class="country__name">${data.name.common}</h3>
