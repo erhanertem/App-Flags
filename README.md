@@ -6,11 +6,11 @@
 
 ### **Objective:** Create an app that fetches country data from a 3rd party API
 
-```diff
+
 - Get into async JavaScript programming
 - Fetching data from a 3rd part API called <i style="font-weight:bold; color:red;">'RESTful API'</i> found at https://restcountries.com/#api-endpoints-v2-all
   - Response request thru XMLHttpRequest Web API (Older)
-```
+
 &emsp;
 
 #### Link to Project &rarr; [Flags-App](https://flags-app-erhan-ertem.netlify.app)
