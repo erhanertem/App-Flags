@@ -7,7 +7,7 @@
 ### **Objective:** Create an app that fetches country data from a 3rd party API
 
 - Get into async JavaScript programming
-- Fetching data from a 3rd part API called <i style="font-weight:bold; color:red;">'RESTful API'</i>
+- Fetching data from a 3rd part API called <i style="font-weight:bold; color:red;">'RESTful API'</i> found at https://restcountries.com/#api-endpoints-v2-all
   - Response request thru XMLHttpRequest Web API (Older)
 
 &emsp;
