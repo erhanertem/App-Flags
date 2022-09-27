@@ -15,21 +15,25 @@ body {
   background-color: #f7f7f7;
   min-height: 100vh;
 
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .container {
   display: flex;
-  flex-flow: column;
-  align-items: center;
+  margin: 30px auto;
+  /* justify-content: center; */
+
+  /* flex-flow: column; */
+  /* align-items: center; */
 }
 
 .countries {
   /* margin-bottom: 8rem; */
   display: flex;
-
+  /* align-items: space-around; */
+  /* justify-content: space-around; */
   font-size: 2rem;
   opacity: 0;
   transition: opacity 1s;
