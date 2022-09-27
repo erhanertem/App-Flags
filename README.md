@@ -8,8 +8,10 @@
 
 
 - Get into async JavaScript programming
+  - Promise based API
 - Fetching data from a 3rd part API called <i style="font-weight:bold; color:red;">'RESTful API'</i> found at https://restcountries.com/#api-endpoints-v2-all
-  - Response request thru XMLHttpRequest Web API (Older)
+  - Response request via XMLHttpRequest Web API (Older)
+  - Response request via fetch Web API (Newer)
 
 &emsp;
 
