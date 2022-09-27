@@ -8,7 +8,7 @@
 
 
 - Get into async JavaScript programming
-- Fetching data from a 3rd part API called <i style="font-weight:bold; color:red;">'RESTful API'</i> found at https://restcountries.com/#api-endpoints-v2-all
+- Fetching data from a 3rd part API called <span color="red">red</span> <i style="font-weight:bold; color:red;">'RESTful API'</i> found at https://restcountries.com/#api-endpoints-v2-all
   - Response request thru XMLHttpRequest Web API (Older)
 
 &emsp;
