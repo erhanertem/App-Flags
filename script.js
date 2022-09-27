@@ -145,14 +145,29 @@ const countriesContainer = document.querySelector('.countries');
 // };
 // getCountryData(country);
 
-let country = 'portugal';
+let country = 'turkiye';
 const request = fetch(`https://restcountries.com/v3.1/name/${country}`);
 console.log(request);
 
 const getCountryData = function (country) {
   fetch(`https://restcountries.com/v3.1/name/${country}`) //fetch data from this entry point API asyncronously
     .then(response => response.json())
-    .then(data => renderCountry(data[0]));
+    .then(data => {
+      renderCountry(data[0]);
+      // console.log(data[0]);
+      const neighbour = data[0].borders;
+      if (!neighbour) return; //GUARD CLAUSE for noin-existing borders
+      if (neighbour.length > 4) {
+        countriesContainer.style.flexWrap = 'wrap';
+        countriesContainer.style.gap = '30px';
+      } //rearrange css for neigbours greater than 4
+      // console.log(neighbour);
+      neighbour.forEach(country => {
+        fetch(`https://restcountries.com/v3.1/alpha/${country}`)
+          .then(response => response.json())
+          .then(data => renderCountry(data[0], 'neighbour'));
+      });
+    });
 };
 getCountryData(country);
 
