@@ -145,7 +145,7 @@ const countriesContainer = document.querySelector('.countries');
 // };
 // getCountryData(country);
 
-let country = 'turkiye';
+let country = 'qweturkiye';
 const request = fetch(`https://restcountries.com/v3.1/name/${country}`);
 console.log(request);
 
@@ -154,7 +154,13 @@ const getCountryData = function (country) {
     // .then(
     //   response => response.json(),
     //   err => alert(err) //we can either catch errors individually
-    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+      if (!response.ok)
+        throw new Error(`Country not found (${response.status})`); //NOTE: catch mistyped country, which is not an external(still receives response from API) but internal error on API side(which can not find answer to and throws 404 error). This new err is caught @ catch below and err gets displayed as constructed here.
+
+      return response.json();
+    })
     .then(data => {
       renderCountry(data[0]);
       // console.log(data[0]);
