@@ -145,22 +145,23 @@ const countriesContainer = document.querySelector('.countries');
 // };
 // getCountryData(country);
 
-let country = 'qweturkiye';
+let country = 'turkiye';
 const request = fetch(`https://restcountries.com/v3.1/name/${country}`);
 console.log(request);
 
 const getCountryData = function (country) {
-  fetch(`https://restcountries.com/v3.1/name/${country}`) //fetch data from this entry point API asyncronously
-    // .then(
-    //   response => response.json(),
-    //   err => alert(err) //we can either catch errors individually
-    .then(response => {
-      console.log(response);
-      if (!response.ok)
-        throw new Error(`Country not found (${response.status})`); //NOTE: catch mistyped country, which is not an external(still receives response from API) but internal error on API side(which can not find answer to and throws 404 error). This new err is caught @ catch below and err gets displayed as constructed here.
+  // fetch(`https://restcountries.com/v3.1/name/${country}`) //fetch data from this entry point API asyncronously
+  //   // .then(
+  //   //   response => response.json(),
+  //   //   err => alert(err) //we can either catch errors individually
+  //   .then(response => {
+  //     console.log(response);
+  //     if (!response.ok)
+  //       throw new Error(`Country not found (${response.status})`); //NOTE: catch mistyped country, which is not an external(still receives response from API) but internal error on API side(which can not find answer to and throws 404 error). This new err is caught @ catch below and err gets displayed as constructed here.
 
-      return response.json();
-    })
+  //     return response.json();
+  //   })
+  getJSON(`https://restcountries.com/v3.1/name/${country}`) //dry code
     .then(data => {
       renderCountry(data[0]);
       // console.log(data[0]);
@@ -172,12 +173,13 @@ const getCountryData = function (country) {
       } //rearrange css for neigbours greater than 4
       // console.log(neighbour);
       neighbour.forEach(country => {
-        fetch(`https://restcountries.com/v3.1/alpha/${country}`)
-          // .then(
-          //   response => response.json(),
-          //   err => alert(err)
-          // ) //we can either catch errors individually
-          .then(response => response.json())
+        // fetch(`https://restcountries.com/v3.1/alpha/${country}`)
+        //   // .then(
+        //   //   response => response.json(),
+        //   //   err => alert(err)
+        //   // ) //we can either catch errors individually
+        //   .then(response => response.json())
+        getJSON(`https://restcountries.com/v3.1/alpha/${country}`) //dry code
           .then(data => renderCountry(data[0], 'neighbour'));
       });
     })
@@ -194,6 +196,14 @@ const getCountryData = function (country) {
 btn.addEventListener('click', function () {
   getCountryData(country);
 });
+
+//FUNCTION
+function getJSON(url, errorMsg = 'Something went wrong') {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+    return response.json();
+  });
+}
 
 //FUNCTION RENDER ERROR
 function renderError(msg) {
