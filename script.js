@@ -151,6 +151,9 @@ console.log(request);
 
 const getCountryData = function (country) {
   fetch(`https://restcountries.com/v3.1/name/${country}`) //fetch data from this entry point API asyncronously
+    // .then(
+    //   response => response.json(),
+    //   err => alert(err) //we can either catch errors individually
     .then(response => response.json())
     .then(data => {
       renderCountry(data[0]);
@@ -164,16 +167,33 @@ const getCountryData = function (country) {
       // console.log(neighbour);
       neighbour.forEach(country => {
         fetch(`https://restcountries.com/v3.1/alpha/${country}`)
+          // .then(
+          //   response => response.json(),
+          //   err => alert(err)
+          // ) //we can either catch errors individually
           .then(response => response.json())
           .then(data => renderCountry(data[0], 'neighbour'));
       });
-    });
+    })
+    .catch(err => {
+      console.error(`${err}🚫`);
+      renderError(`Something went wrong 💥💥 ${err.message}`);
+    }) //we can catch async errors globally at the end of the encapsulated code
+    .finally(() => {
+      countriesContainer.style.opacity = 1; //REMOVED AND PUT IN FINALLY() METHOD AS ITS A COMMON EXERCISE FOR ALL TASKS - WHETHER ITS AN ERROR OR SUCCESS
+    }); //NOTE: usefull in operations of terminating a spinner no matter it throws an error or success.
 };
 
 //EVENTHANDLER - BTN
 btn.addEventListener('click', function () {
   getCountryData(country);
 });
+
+//FUNCTION RENDER ERROR
+function renderError(msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+  // countriesContainer.style.opacity = 1; //REMOVED AND PUT IN FINALLY() METHOD AS ITS A COMMON EXERCISE FOR ALL TASKS - WHETHER ITS AN ERROR OR SUCCESS
+}
 
 //FUNCTION RENDER COUNTRY CARD
 function renderCountry(data, className = '') {
@@ -199,5 +219,5 @@ function renderCountry(data, className = '') {
     `;
   //-->#3.Insert the HTML fragment into HTML body
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  countriesContainer.style.opacity = 1;
+  // countriesContainer.style.opacity = 1; //REMOVED AND PUT IN FINALLY() METHOD AS ITS A COMMON EXERCISE FOR ALL TASKS - WHETHER ITS AN ERROR OR SUCCESS
 }
