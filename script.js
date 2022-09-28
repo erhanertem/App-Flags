@@ -161,7 +161,7 @@ const getCountryData = function (country) {
 
   //     return response.json();
   //   })
-  getJSON(`https://restcountries.com/v3.1/name/${country}`) //dry code
+  getJSON(`https://restcountries.com/v3.1/name/${country}`, 'Country not found') //dry code
     .then(data => {
       renderCountry(data[0]);
       // console.log(data[0]);
@@ -179,7 +179,10 @@ const getCountryData = function (country) {
         //   //   err => alert(err)
         //   // ) //we can either catch errors individually
         //   .then(response => response.json())
-        getJSON(`https://restcountries.com/v3.1/alpha/${country}`) //dry code
+        getJSON(
+          `https://restcountries.com/v3.1/alpha/${country}`,
+          'Neighbour not found'
+        ) //dry code
           .then(data => renderCountry(data[0], 'neighbour'));
       });
     })
