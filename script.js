@@ -169,7 +169,11 @@ const getCountryData = function (country) {
       });
     });
 };
-getCountryData(country);
+
+//EVENTHANDLER - BTN
+btn.addEventListener('click', function () {
+  getCountryData(country);
+});
 
 //FUNCTION RENDER COUNTRY CARD
 function renderCountry(data, className = '') {

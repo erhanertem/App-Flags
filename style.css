@@ -20,20 +20,25 @@ body {
   justify-content: center; */
 }
 
+.btn-country {
+  margin: 50px auto;
+}
+
 .container {
   display: flex;
+  flex-direction: column;
   margin: 30px auto;
-  /* justify-content: center; */
+  justify-content: center;
 
-  /* flex-flow: column; */
-  /* align-items: center; */
+  flex-flow: column wrap;
+  align-items: center;
 }
 
 .countries {
   /* margin-bottom: 8rem; */
   display: flex;
   /* align-items: space-around; */
-  /* justify-content: space-around; */
+  justify-content: space-around;
   font-size: 2rem;
   opacity: 0;
   transition: opacity 1s;
@@ -45,7 +50,7 @@ body {
   font-size: 1.8rem;
   width: 30rem;
   border-radius: 0.7rem;
-  margin: 0 3rem;
+  /* margin: 0 3rem; */
   /* overflow: hidden; */
 }
 
