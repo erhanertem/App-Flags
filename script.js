@@ -145,7 +145,7 @@ const countriesContainer = document.querySelector('.countries');
 // };
 // getCountryData(country);
 
-let country = 'turkiye';
+let country = 'australia';
 const request = fetch(`https://restcountries.com/v3.1/name/${country}`);
 console.log(request);
 
@@ -166,7 +166,8 @@ const getCountryData = function (country) {
       renderCountry(data[0]);
       // console.log(data[0]);
       const neighbour = data[0].borders;
-      if (!neighbour) return; //GUARD CLAUSE for noin-existing borders
+      // if (!neighbour) return; //GUARD CLAUSE for non-existing borders
+      if (!neighbour) throw new Error('No neighbour found'); //GUARD CLAUSE for non-existing borders
       if (neighbour.length > 4) {
         countriesContainer.style.flexWrap = 'wrap';
         countriesContainer.style.gap = '30px';
@@ -188,7 +189,7 @@ const getCountryData = function (country) {
     })
     .catch(err => {
       console.error(`${err}🚫`);
-      renderError(`Something went wrong 💥💥 ${err.message}`);
+      renderError(`🚫${err.message}`);
     }) //we can catch async errors globally at the end of the encapsulated code
     .finally(() => {
       countriesContainer.style.opacity = 1; //REMOVED AND PUT IN FINALLY() METHOD AS ITS A COMMON EXERCISE FOR ALL TASKS - WHETHER ITS AN ERROR OR SUCCESS
