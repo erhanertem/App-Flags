@@ -7,7 +7,7 @@
 ### **Objective:** Create an app that fetches country data from a 3rd party API
 
 - Get into async JavaScript programming
-  - Promise based API
+  - Promises
   - Async/await
   - Error handling try...catch
 - Fetching data from 3rd party APIs
@@ -18,8 +18,8 @@
   - fetch Web API (Newer)
 - Implemented the project in 3 different ways using:
   - XMLHttpRequest Web API + eventhandlers + 'RESTful API'
-  - Fetch Web API + promise API + 'RESTful API'
-  - Fetch Web API + promise API + async/await + 'Geocode.xyz API' + 'RESTful API'
+  - Fetch Web API + promises + 'RESTful API'
+  - Fetch Web API + promises + async/await + 'Geocode.xyz API' + 'RESTful API'
 
 Provided additional measures for clearing success and online API error outputs.
 
