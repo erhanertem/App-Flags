@@ -14,8 +14,8 @@
   - 'RESTful API' found at https://restcountries.com/#api-endpoints-v2-all
   - 'Geocode.xyz API' found at https://geocode.xyz/
 - Fetching data via :
-  - Response request via XMLHttpRequest Web API (Older)
-  - Response request via fetch Web API (Newer)
+  - XMLHttpRequest Web API (Older)
+  - fetch Web API (Newer)
 - Implemented the project in 3 different ways using:
   - XMLHttpRequest Web API + eventhandlers + 'RESTful API'
   - Fetch Web API + promise API + 'RESTful API'
