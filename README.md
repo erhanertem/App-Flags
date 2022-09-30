@@ -8,10 +8,20 @@
 
 - Get into async JavaScript programming
   - Promise based API
-  - Handling promise errors (catch, err)
-- Fetching data from a 3rd part API called <i style="font-weight:bold; color:red;">'RESTful API'</i> found at https://restcountries.com/#api-endpoints-v2-all
+  - Async/await
+  - Error handling try...catch
+- Fetching data from 3rd party APIs
+  - 'RESTful API' found at https://restcountries.com/#api-endpoints-v2-all
+  - 'Geocode.xyz API' found at https://geocode.xyz/
+- Fetching data via :
   - Response request via XMLHttpRequest Web API (Older)
   - Response request via fetch Web API (Newer)
+- Implemented the project in 3 different ways using:
+  - XMLHttpRequest Web API + eventhandlers + 'RESTful API'
+  - Fetch Web API + promise API + 'RESTful API'
+  - Fetch Web API + promise API + async/await + 'Geocode.xyz API' + 'RESTful API'
+
+Provided additional measures for clearing success and online API error outputs.
 
 &emsp;
 

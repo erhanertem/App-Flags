@@ -24,6 +24,11 @@ body {
   margin: 50px auto;
 }
 
+.location {
+  font-size: 1.8rem;
+  color: inherit;
+}
+
 .container {
   display: flex;
   flex-direction: column;
