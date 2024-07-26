@@ -24,7 +24,7 @@
 Provided additional measures for clearing success and online API error outputs.
 
 &emsp;
-
+###### ⚠️Changes to API and throttling restrictions may lead to app dysfunction
 #### [Flags-App](https://flags-app-erhan-ertem.netlify.app)
 
 <img src="./screenshot.gif" width="500px"/>
